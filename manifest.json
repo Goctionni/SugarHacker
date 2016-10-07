@@ -1,0 +1,34 @@
+{
+    "name": "SugarHacker",
+    "version": "1.0.0",
+    "description": "Allows you to change font/style; also adds cheats",
+    "commands": {
+        "enable_sugar_hacker": {
+            "suggested_key": {
+              "default": "Ctrl+Shift+H"
+            },
+            "description": "Enable SugarCube hacker"
+        },
+        "show_custom_globals": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+K"
+            },
+            "description": "Show non-default global-variables"
+        }
+    },
+    "permissions": [
+        "activeTab", "tabs"
+    ],
+    "icons": {
+        "16": "Icons/16.png",
+        "48": "Icons/48.png",
+        "128": "Icons/128.png"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "web_accessible_resources": [
+        "sugarhacker.js", "sugarhacker.css", "show-custom-globals.js"
+    ],
+    "manifest_version": 2
+}

@@ -1,0 +1,155 @@
+#VarStateContainer, #VarStateContainer div {
+    box-sizing: border-box;
+}
+#VarStateContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    z-index: 1000000000;
+    font-family: Arial;
+    color: #FFF;
+    min-width: 350px;
+    font-size: 12px;
+    padding-left: 16px;
+    max-height: 99.5%;
+    overflow: auto;
+    border-left: solid #FFF 1px;
+    border-bottom: solid #FFF 1px;
+    border-bottom-left-radius: 5px;
+    padding-top: 25px;
+}
+#VarStateContainer > .var-field {
+    padding-left: 0;
+}
+#VarStateContainer > .var-field > .var-title {
+    position: fixed;
+    background-color: #000;
+    min-width: 100%;
+    margin-left: 0px;
+    top: 0;
+    text-indent: 10px;
+    z-index: 1000000001;
+}
+#VarStateContainer > .var-field.properties-open > .var-title {
+    min-width: 310px;
+}
+#VarStateContainer > .var-field.var-type-object:before {
+    top: 0;
+    position: fixed;
+    z-index: 1000000002;
+    margin-left: -10px;
+}
+
+.var-properties {
+    overflow-x: visible;
+    overflow-y: hidden;
+    max-height: 0px;
+    opacity: 0;
+
+    transition-property: max-height, opacity;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1), ease;
+}
+.properties-open > .var-properties {
+    max-height: 20000px;
+    transition-timing-function: cubic-bezier(0.5, 0, 1, 0), ease;
+    opacity: 1;
+}
+.var-properties > * {
+    visibility: hidden;
+}
+.properties-open > .var-properties > * {
+    visibility: visible;
+}
+.properties-open > .var-properties:empty:before {
+    content: 'Empty';
+    font-style: italic;
+    opacity: .5;
+}
+
+.var-field {
+    line-height: 25px;
+    padding-left: 10px;
+}
+.var-title {
+    text-indent: 11px;
+    display: inline-block;
+}
+.var-type-object {
+    position: relative;
+}
+.var-type-object:before {
+    content: '+';
+    border: solid #FFF 1px;
+    border-radius: 10%;
+    width: 15px;
+    line-height: 15px;
+    height: 15px;
+    position: absolute;
+    margin-left: -10px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 3px;
+    opacity: .5;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.var-type-number:before {
+    content: '#';
+    border: solid #FFF 1px;
+    border-radius: 100%;
+    width: 15px;
+    line-height: 15px;
+    height: 15px;
+    position: absolute;
+    margin-left: -10px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 3px;
+    opacity: .5;
+    transition: all 0.3s ease;
+}
+.var-type-text:before {
+    content: 'A';
+    border: solid #FFF 1px;
+    border-radius: 100%;
+    width: 15px;
+    line-height: 15px;
+    height: 15px;
+    position: absolute;
+    margin-left: -10px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 3px;
+    opacity: .5;
+    transition: all 0.3s ease;
+}
+input.var-input {
+    width: 150px;
+    float: right;
+    margin-right: 10px;
+    min-width: 0;
+}
+
+.var-type-object.properties-open:before {
+    border-radius: 100%;
+    transform: rotate(45deg);
+}
+.var-type-object > .var-title {
+    display: block;
+    cursor: pointer;
+}
+
+#VarStateContainer input {
+    padding: 2px 3px;
+}
+#VarStateContainer input {
+    color: #fff;
+    background-color: #111;
+    border: 1px solid #444;
+    outline: 0;
+}
+#VarStateContainer .var-input.value-changed {
+    outline: dotted #FF0 1px;
+}
